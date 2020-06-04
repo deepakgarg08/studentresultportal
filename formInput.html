@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        #inputfields {
+            width: -webkit-fill-available;
+            font-weight: bold
+        }
+
+        #inputfields:hover {
+            background-color: rgb(228, 213, 216);
+        }
+
+        th,
+        td {
+            border: 2px solid rgb(65, 63, 63);
+            background-color: rgb(185, 235, 168);
+
+        }
+
+        input:valid {
+            color: black;
+        }
+
+        input:invalid {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div>
+            <h2>Student's Basic Details</h2>
+            <!-- <form class="form-horizontal" onsubmit="handleSubmitRequest()"> -->
+            <form class="form-horizontal" action="http://127.0.0.1:3000/new" method="POST">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="Enrollment">Enrollment No:</label>
+                    <div class="col-sm-10">
+                        <input type="text" style="width:25%" class="form-control" id="Enrollment"
+                            placeholder="Enter Enrollment" name="enrollment" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="RollNo">RollNo:</label>
+                    <div class="col-sm-10">
+                        <input type="text" style="width:25%" class="form-control" id="RollNo" placeholder="Enter RollNo"
+                            name="rollno" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="NameofStudent">Name of Student:</label>
+                    <div class="col-sm-10">
+                        <input type="text" style="width:25%" class="form-control" id="NameofStudent"
+                            placeholder="Enter Name of Student" name="nameofstudent" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="FatherName">Father's Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" style="width:25%" class="form-control" id="FatherName"
+                            placeholder="Enter FatherName" name="fatherName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="MotherName">Mother's Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" style="width:25%" class="form-control" id="MotherName"
+                            placeholder="Enter MotherName" name="motherName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="DateofBirth">Date of Birth:</label>
+                    <div class="col-sm-10">
+                        <input type="text" style="width:25%" class="form-control" id="DateofBirth"
+                            placeholder="Enter DateofBirth" name="dateofbirth" required>
+                    </div>
+                </div>
+        </div>
+
+        <h2> Student Marks Details</h2>
+        <!-- Studen's marks details -->
+
+        <!-- Subjects	Theory Marks	Practical Marks	Total Marks	Grade -->
+        <div>
+            <table style="width: 100%;  border-bottom: 5px solid #969696; border: 1px solid black; " rules="all"
+                cellpadding="5" cellspacing="5">
+
+                <tr style="font-family: Courier; font-size: 18px; text-align: center;">
+                    <th>Subjects</th>
+                    <th>Theory Marks</th>
+                    <th>Practical Marks</th>
+                    <!-- <th>Total Marks</th> -->
+                    <th>Grade</th>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <div class="Capital">
+                            ENGLISH
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <input type="number" name="ethm" id="inputfields" min=0 max=100 required>
+                    </td>
+                    <td style="text-align: center;">
+
+                    </td>
+                    <!-- <td style="text-align: center;">pattern="\d{3}"
+                        <div>
+                            <input type="number" name="etm" id="inputfields" min=0 max=100 required>
+                        </div>
+
+                    </td> -->
+                    <td align="center">
+                        <input type="text" name="egm" id="inputfields"  style="text-transform:uppercase" required>
+
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <div class="Capital">
+                            HINDI
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <input type="number" name="hthm" style="width :-webkit-fill-available" id="inputfields" min=0
+                            max=100 required>
+
+                    </td>
+                    <td style="text-align: center;">
+
+                    </td>
+                    <!-- <td style="text-align: center;">
+                        <div>
+                            <input type="number" name="htm" id="inputfields" min=0 max=100 required>
+                        </div>
+                    </td> -->
+                    <td align="center">
+                        <input type="text" name="hgm" id="inputfields" style="text-transform:uppercase" required>
+
+
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <div class="Capital">
+                            MATHEMATICS
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <input type="number" name="mthm" id="inputfields" min=0 max=100 required>
+
+                    </td>
+                    <td style="text-align: center;">
+
+                    </td>
+                    <!-- <td style="text-align: center;">
+                        <div>
+                            <input type="number" name="mtm" id="inputfields" min=0 max=100 required>
+
+
+                        </div>
+
+                    </td> -->
+                    <td align="center">
+                        <input type="text" name="mgm" id="inputfields"  style="text-transform:uppercase"required>
+
+
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <div class="Capital">
+                            SOCIAL STUDIES
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <input type="number" name="ssthm" id="inputfields" min=0 max=100 required>
+
+                    </td>
+                    <td style="text-align: center;">
+                        <input type="number" name="sspm" id="inputfields" min=0 max=100 required>
+
+                    </td>
+                    <!-- <td style="text-align: center;">
+                        <div>
+                            <input type="number" name="sstm" id="inputfields" min=0 max=100 required>
+
+                        </div>
+
+                    </td> -->
+                    <td align="center">
+                        <input type="text" name="ssgm" id="inputfields"  style="text-transform:uppercase"required>
+
+
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <div class="Capital">
+                            SCIENCE
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <input type="number" name="scthm" id="inputfields" min=0 max=100 required>
+
+                    </td>
+                    <td style="text-align: center;">
+                        <input type="number" name="scpm" id="inputfields" min=0 max=100 required>
+
+                    </td>
+                    <!-- <td style="text-align: center;">
+                        <div>
+                            <input type="number" name="sctm" id="inputfields"min=0 max=100 required>
+
+                        </div>
+
+                    </td> -->
+                    <td align="center">
+                        <input type="text" name="scgm" id="inputfields"  style="text-transform:uppercase"min=0 max=100 required>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <div class="Capital">
+                            PHYSICAL EDUCATION
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <input type="number" name="phthm" id="inputfields" min=0 max=100 required>
+
+                    </td>
+                    <td style="text-align: center;">
+                        <input type="number" name="phpm" id="inputfields" min=0 max=100 required>
+                    </td>
+                    <!-- <td style="text-align: center;">
+                        <div>
+                            <input type="number" name="phtm" id="inputfields" min=0 max=100 required>
+
+                        </div>
+
+                    </td> -->
+                    <td align="center">
+                        <input type="text" name="phgm" id="inputfields" style="text-transform:uppercase" required>
+                    </td>
+                </tr>
+
+                <!-- <tr style="font-family: Sans-Serif; text-align: center;">
+                    <th colspan="3"><b>Total</b></th>
+                    <th>
+                        <span id="ctl00_working_lbl_Total">--</span>
+                    </th>
+                    <th><span id="ctl00_working_lbl_TotalGrade">--</span></th>
+                </tr> -->
+
+
+                <tr style="font-family: Calibri; text-align: center;">
+                    <th colspan="3">Total</th>
+                    <th>
+                        <input type="text" name="total_grade" id="inputfields" style="text-transform:uppercase" required>
+
+                        <!-- <span class="ctl00_working_lbl_Result" id="inputfields">--</span> -->
+                    </th>
+
+                    <th>
+
+                    </th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <!-- <div class="col-sm-offset-2 col-sm-10"> -->
+                <br>
+                <button type="submit" class="btn btn-default" style="color: chartreuse; background-color: green;">Submit</button>
+            <!-- </div> -->
+        </div>
+        </form>
+    </div>
+
+    <script>
+
+        // let ethm, etm, egm, hthm, htm, hgm, mthm, mtm, mgm, ssthm, sstm, ssgm, scthm, scpm, sctm, scgm, phthm, phpm, phtm, phgm;
+
+
+
+
+        // let handleSubmitRequest = (e) => {
+        //     console.log('e', e)
+
+        //     e.preventDefault()
+        //     ethm = inputfields[0].value
+        //     console.log('ethm', ethm)
+        //     ethm = $('#txt_name').val();
+        //     console.log('ethm2', ethm)
+
+
+
+        // }
+
+
+
+
+
+
+        // let theory, practical, total_marks = 0;
+        // let Grade = ''
+        // let Subjects = {}
+
+
+
+
+        // let marks = {
+        //     english: {
+        //         theory: 70,
+        //         practical: 50,
+        //         total_marks: 
+
+
+
+        //     }
+        // }
+
+    </script>
+
+
+
+</body>
+
+</html>
