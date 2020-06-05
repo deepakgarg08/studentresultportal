@@ -2,6 +2,9 @@ const express = require('express')
 // const body = require('body-parser')
 const mongoose = require('mongoose')
 const app = express()
+const cors = require('cors')
+app.use(cors())
+app.options('*', cors())
 const Posts = require('./model/mongoscheme')
 
 app.use(express.json()) // for parsing application/json
@@ -14,7 +17,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err)
     if (err) console.log('error connecting the mongodb' + err)
     else console.log('connection is successful.')
 })
-
+mongoose.set('useCreateIndex', true);
 
 app.get('/', (req, res) => {
 
@@ -29,31 +32,65 @@ app.post('/new', async (req, res) => {
     studentDetails.htm = (Number)(studentDetails.hthm)
     studentDetails.mtm = (Number)(studentDetails.mthm)
     studentDetails.etm = (Number)(studentDetails.ethm)
-    studentDetails.sstm =(Number) (studentDetails.ssthm) + (Number)(studentDetails.sspm)
-    studentDetails.sctm =(Number) (studentDetails.scthm) + (Number)(studentDetails.scpm)
-    studentDetails.phtm =(Number) (studentDetails.phthm) + (Number)(studentDetails.phpm)
+    studentDetails.sstm = (Number)(studentDetails.ssthm) + (Number)(studentDetails.sspm) || 0
+    studentDetails.sctm = (Number)(studentDetails.scthm) + (Number)(studentDetails.scpm) || 0
+    studentDetails.phtm = (Number)(studentDetails.phthm) + (Number)(studentDetails.phpm) || 0
 
     studentDetails.total_marks = studentDetails.htm + studentDetails.mtm + studentDetails.etm + +    studentDetails.sstm + studentDetails.sctm + studentDetails.phtm
     console.log('studentDetails...after addition', studentDetails)
 
+    let user = new Posts(studentDetails)
+    await user.save().then(data => {
+        console.log("check result data", data)
 
-
-    // const { initial_balance } = req.body
-
-    // if (initial_balance < 2000) {
-    //     return res.send('bhag yha sei...gareeb sala')
-    // }
-    let user =  new Posts(studentDetails)
-    await user.save().then( data => {
-        console.log("check result data", res.json(data))
-
-        return  res.json(data)
+        return res.json(data)
+        // return  window.location.href = "index.html"
     }).catch(err => {
         console.log("check error")
         return res.json(err)
     })
-  console.log('i m fired')
-    return res.send("request received")
+    console.log('i m fired')
+    // return res.send("request received")
+
+})
+
+
+app.post('/result', async function (request, response) {
+
+    let studentDetails = request.body
+    console.log('studentDetails', studentDetails)
+
+
+    // if (value.length === 24) {
+    try {
+        const student = await Posts.find({ rollno: studentDetails.rollno });;
+
+        // console.log('student', student)
+        if (student === null || student.length === 0) {
+            response.send("no student found")
+            return;
+        }
+        else if (student[0].rollno === studentDetails.rollno && student[0].dateofbirth === studentDetails.dob) {
+            console.log("check student details", student)
+
+            return response.json(student[0])
+        }
+        else {
+            console.log("check student details when no user found", studentDetails)
+
+            return response.json({result : 'no result found'})
+           
+        }
+
+    
+        
+    } catch (err) {
+    // console.log("error occured", err)
+    response.send('error occured' + err)
+
+}
+    // }
+
 
 })
 

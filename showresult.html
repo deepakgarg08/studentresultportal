@@ -5,6 +5,7 @@
 </head>
 
 <body>
+    <h5>All fields are mandatory, if not required, put -- </h5>
     <div align="Center">
         <img src="result.jpg" width="450" />
         <table border="0" class="WorkFullTab">
@@ -58,14 +59,16 @@
                 <th>
                     Roll No.*</th>
                 <td>
-                    <input name="ctl00$working$textRollNo" type="text" value="235578" maxlength="20"
+                    <input name="ctl00$working$textRollNo" type="text" value="12345" maxlength="20"
                         id="ctl00_working_textRollNo" />
                     <span id="ctl00_working_reqRollNo" style="color:Red;visibility:hidden;">*</span>
                 </td>
                 <th>
                     D.O.B.*
                 </th>
-                <td>
+                <td><input type="date" id="dob" name="dateofbirth"  min="1970-01-01"
+                    max="2010-12-31" required></td>
+                <!-- <td>
                     <select name="ctl00$working$dropDate" id="ctl00_working_dropDate" style="width:60px;">
                         <option value="-1">-Day-</option>
                         <option value="1">1</option>
@@ -178,7 +181,7 @@
                         <option value="2007">2007</option>
 
                     </select>
-                </td>
+                </td> -->
                 <td>
                     <input type="submit" name="ctl00$working$btnSearch" value="Search" onclick="handleResult()"
                         id="ctl00_working_btnSearch" />
@@ -219,7 +222,7 @@
                             <td>
                                 RollNo</td>
                             <td>
-                                <span id="ctl00_working_lbl_RollNo">235578</span></td>
+                                <span id="ctl00_working_lbl_RollNo">12345</span></td>
                         </tr>
                         <tr style="font-family: Serif;">
                             <td>
@@ -257,7 +260,8 @@
                         </tr>
                     </table>
                 </div>
-
+                <br/>
+                <br/>
 
 
 
@@ -281,19 +285,17 @@
                                     ENGLISH
                                 </div>
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id = "ethm">
                                 73
                             </td>
                             <td style="text-align: center;">
 
                             </td>
-                            <td style="text-align: center;">
-                                <div>
-                                    73
-                                </div>
+                            <td style="text-align: center;" id = "etm">
+                            73
 
                             </td>
-                            <td align="center">B1</td>
+                            <td align="center"  id = "egm">B1</td>
                         </tr>
 
                         <tr>
@@ -303,19 +305,17 @@
                                     HINDI
                                 </div>
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id = "hthm">
                                 66
                             </td>
                             <td style="text-align: center;">
 
                             </td>
-                            <td style="text-align: center;">
-                                <div>
-                                    66
-                                </div>
+                            <td style="text-align: center;" id = "htm">
+                                66
 
                             </td>
-                            <td align="center">B2</td>
+                            <td align="center" id = "hgm">B2</td>
                         </tr>
 
                         <tr>
@@ -325,19 +325,17 @@
                                     MATHEMATICS
                                 </div>
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id = "mthm">
                                 74
                             </td>
                             <td style="text-align: center;">
 
                             </td>
-                            <td style="text-align: center;">
-                                <div>
-                                    74
-                                </div>
+                            <td style="text-align: center;" id = "mtm">
+                              74
 
                             </td>
-                            <td align="center">B1</td>
+                            <td align="center" id = "mgm">B1</td>
                         </tr>
 
                         <tr>
@@ -347,19 +345,18 @@
                                     SOCIAL STUDIES
                                 </div>
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id = "ssthm">
                                 68
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;"  id = "sspm">
 
                             </td>
-                            <td style="text-align: center;">
-                                <div>
-                                    68
-                                </div>
+                            <td style="text-align: center;" id = "sstm">
+                                68
+                              
 
                             </td>
-                            <td align="center">B2</td>
+                            <td align="center" id = "ssgm" >B2</td>
                         </tr>
 
                         <tr>
@@ -369,19 +366,19 @@
                                     SCIENCE
                                 </div>
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id="scthm">
                                 38
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id="scpm">
                                 27
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id="sctm">
                                 <div>
                                     65
                                 </div>
 
                             </td>
-                            <td align="center">B2</td>
+                            <td align="center" id = "scgm">B2</td>
                         </tr>
 
                         <tr>
@@ -391,25 +388,25 @@
                                     PHYSICAL EDUCATION
                                 </div>
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id="phthm">
                                 44
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id="phpm">
                                 32
                             </td>
-                            <td style="text-align: center;">
+                            <td style="text-align: center;" id="phtm">
                                 <div>
                                     76
                                 </div>
 
                             </td>
-                            <td align="center">B1</td>
+                            <td align="center" id = "phgm">B1</td>
                         </tr>
 
                         <tr style="font-family: Sans-Serif; text-align: center;">
                             <th colspan="3"><b>Total</b></th>
                             <th>
-                                <span id="ctl00_working_lbl_Total">422</span>
+                                <span id="ctl00_working_lbl_Total">-</span>
                             </th>
                             <th><span id="ctl00_working_lbl_TotalGrade">B2</span></th>
                         </tr>
@@ -422,6 +419,7 @@
                 </div>
             </div>
             <script src="index.js"></script>
+            
 </body>
 
 </html>

@@ -62,7 +62,7 @@ phgm :  { type: String,uppercase: true },
     required: false
 },
 
-
+//other useful
 
 "total": {
     type: Number,
@@ -80,9 +80,10 @@ phgm :  { type: String,uppercase: true },
 
 "total_grade": {
     type: String,
-    required: false
+    required: false,
+    uppercase: true
 },
-
+//pass or fail or re ???
 "overall_result": {
     type: String,
     required: false
@@ -92,46 +93,3 @@ phgm :  { type: String,uppercase: true },
 
 
 module.exports = mongoose.model('studentDatabase', dbschema)
-
-
-// req {
-//     enrollment: 'HCOS/018/0603/C',
-//     rollno: '12345',
-//     nameofstudent: 'Deepak Garg',
-//     fatherName: 'Krishan ',
-//     motherName: 'kk',
-//     dateofbirth: '25.04.1992',
-//     ethm: '85',
-//     egm: 'A',
-//     hthm: '78',
-//     hgm: 'A',
-//     mthm: '95',
-//     mgm: 'B',
-//     ssthm: '60',
-//     sspm: '20',
-//     ssgm: 'C',
-//     scthm: '66',
-//     scpm: '15',
-//     scgm: 'C',
-//     phthm: '90',
-//     phpm: '10',
-//     phgm: 'a'
-//   }
-
-//   "username": {
-//     type: String,
-//     required: true
-// },
-
-// "password": {
-//     type: String,
-//     required: true
-// },
-// "initial_balance": {
-//     type: Number,
-//     required: true
-// },
-// "initial_balance": {
-//     type: Number,
-//     required: true
-// }
