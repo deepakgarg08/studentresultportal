@@ -22,7 +22,6 @@ async function handleResult() {
         }
         else {
 
-
             ctl00_working_lbl_EnrollmentNo.innerHTML = content.enrollment
             ctl00_working_lbl_RollNo.innerHTML = content.rollno
             ctl00_working_lbl_Name.innerHTML = content.nameofstudent
