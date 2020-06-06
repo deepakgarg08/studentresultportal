@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to result app ')
 })
 
+//create student data
 app.post('/new', async (req, res) => {
     let studentDetails = req.body
     studentDetails.htm = (Number)(studentDetails.hthm)
@@ -49,15 +50,9 @@ app.post('/new', async (req, res) => {
 
 })
 
-
+//retrieve result
 app.post('/result', async function (request, response) {
-
-
-
     let studentDetails = request.body
-
-
-    // if (value.length === 24) {
     try {
         const student = await Posts.find({ rollno: studentDetails.rollno });;
 
@@ -74,17 +69,11 @@ app.post('/result', async function (request, response) {
             return response.json({ result: 'no result found' })
 
         }
-        // res.sendfile({
-
-        // })
-
-
 
     } catch (err) {
         response.jaon({ 'error': err })
 
     }
-    // }
 
 
 })

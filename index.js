@@ -1,15 +1,12 @@
 async function handleResult() {
 
-    console.log("hello world")
     if (ctl00_working_dropCourse.value && ctl00_working_textRollNo.value && dob.value) {
-        console.log('passed')
         const studentDetails = {
 
             dropcourse: ctl00_working_dropCourse.value,
             rollno: ctl00_working_textRollNo.value,
             dob: dob.value
         }
-        console.log('studentDetails', studentDetails)
 
         const rawResponse = await fetch('http://127.0.0.1:3000/result', {
             method: 'POST',
@@ -20,13 +17,11 @@ async function handleResult() {
             body: JSON.stringify(studentDetails)
         });
         const content = await rawResponse.json();
-        console.log('check response result', content)
         if (content.result) {
             alert(content.result)
         }
         else {
 
-            console.log(content.enrollment);
 
             ctl00_working_lbl_EnrollmentNo.innerHTML = content.enrollment
             ctl00_working_lbl_RollNo.innerHTML = content.rollno
@@ -66,7 +61,6 @@ async function handleResult() {
     }
     else {
         alert('invalid input')
-        console.log('Invalid input')
     }
 
 
