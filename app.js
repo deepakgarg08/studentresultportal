@@ -1,5 +1,4 @@
 const express = require('express')
-// const body = require('body-parser')
 const mongoose = require('mongoose')
 const app = express()
 const cors = require('cors')
@@ -26,9 +25,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/new', async (req, res) => {
-    console.log('req', req.body)
     let studentDetails = req.body
-    console.log('studentDetails', studentDetails)
     studentDetails.htm = (Number)(studentDetails.hthm)
     studentDetails.mtm = (Number)(studentDetails.mthm)
     studentDetails.etm = (Number)(studentDetails.ethm)
@@ -36,8 +33,11 @@ app.post('/new', async (req, res) => {
     studentDetails.sctm = (Number)(studentDetails.scthm) + (Number)(studentDetails.scpm) || 0
     studentDetails.phtm = (Number)(studentDetails.phthm) + (Number)(studentDetails.phpm) || 0
 
-    studentDetails.total_marks = studentDetails.htm + studentDetails.mtm + studentDetails.etm + +    studentDetails.sstm + studentDetails.sctm + studentDetails.phtm
+    studentDetails.total_marks = studentDetails.htm + studentDetails.mtm + studentDetails.etm + studentDetails.sstm + studentDetails.sctm + studentDetails.phtm
     console.log('studentDetails...after addition', studentDetails)
+
+    var count = Object.keys(studentDetails).length
+  console.log('count',count);
 
     let user = new Posts(studentDetails)
     await user.save().then(data => {
@@ -49,13 +49,15 @@ app.post('/new', async (req, res) => {
         console.log("check error")
         return res.json(err)
     })
-    console.log('i m fired')
+    console.log('bye bye')
     // return res.send("request received")
 
 })
 
 
 app.post('/result', async function (request, response) {
+
+
 
     let studentDetails = request.body
     console.log('studentDetails', studentDetails)
@@ -78,20 +80,39 @@ app.post('/result', async function (request, response) {
         else {
             console.log("check student details when no user found", studentDetails)
 
-            return response.json({result : 'no result found'})
-           
+            return response.json({ result: 'no result found' })
+
         }
+        // res.sendfile()
+        // // res.render("result",{
+        // //     student:student[0]
+        // // })
 
-    
-        
+
     } catch (err) {
-    // console.log("error occured", err)
-    response.send('error occured' + err)
+        console.log("error occured")
+        response.jaon({'error' : err})
 
-}
+    }
     // }
 
 
+})
+
+app.delete('/deleteall', async function (request, response) {
+
+   
+        try {
+            const res = await Posts.deleteMany({});
+            console.log("check deleted records count", res.deletedCount);
+            await response.send(`All records (${res.deletedCount}) deleted successfully`)
+
+        } catch (error) {
+            console.log(("check err", error))
+            await response.send('error occured', error)
+            
+        }
+   
 })
 
 app.listen(port, e => console.log("server started at port " + port))

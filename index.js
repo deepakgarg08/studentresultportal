@@ -25,7 +25,7 @@ async function handleResult() {
             body: JSON.stringify(studentDetails)
         });
         const content = await rawResponse.json();
-        console.log('content', content)
+        console.log('check response result', content)
         if (content.result) {
             alert(content.result)
         }
