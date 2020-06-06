@@ -1,11 +1,6 @@
 async function handleResult() {
 
     console.log("hello world")
-
-    // console.log(ctl00_working_dropCourse.value)
-    // console.log(ctl00_working_textRollNo.value)
-    // console.log(dob.value)
-
     if (ctl00_working_dropCourse.value && ctl00_working_textRollNo.value && dob.value) {
         console.log('passed')
         const studentDetails = {
