@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
 
 //create student data
 app.post('/new', async (req, res) => {
+
+
+
+    
     let studentDetails = req.body
     studentDetails.htm = (Number)(studentDetails.hthm)
     studentDetails.mtm = (Number)(studentDetails.mthm)

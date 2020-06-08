@@ -8,8 +8,7 @@ etm...for total marks
 */
 
 let schema = mongoose.Schema;
-let dbschema = new schema(
-    {
+let dbschema = new schema({
 
     enrollment: 'String',
     rollno: { type: 'String', unique: true },
@@ -24,7 +23,6 @@ let dbschema = new schema(
     ssthm: 'String',
     scthm: 'String',
     phthm: 'String',
-
 
     sspm: 'String',
     scpm: 'String',
@@ -51,17 +49,18 @@ let dbschema = new schema(
     "total_grade": { type: 'String',  uppercase: true },
     //pass or fail or re ???
     "overall_result": { type: 'String'},
+    studentphoto: { data: Buffer, contentType: String }
 
 
 })
 
 // let schema = mongoose.Schema;
 
-var AnimalSchema = mongoose.Schema({
+// var AnimalSchema = mongoose.Schema({
     
-    name: String
-  , type: String
-});
+//     name: String
+//   , type: String
+// });
 
 // AnimalSchema.methods.findSimilarType = function findSimilarType (cb) {
 //   return this.model('Animal').find({ type: this.type }, cb);
@@ -79,7 +78,7 @@ var AnimalSchema = mongoose.Schema({
 // })
 
 
-//if all fields are of same type (string, number etc)
+// if all fields are of same type (string, number etc)
 // function keyValue (obj){
 //     let finalresult ={}
 //     let count = Object.keys(obj)
