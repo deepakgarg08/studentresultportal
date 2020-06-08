@@ -56,6 +56,7 @@ async function handleResult() {
             // ctl00_working_lbl_Result.innerHTML = 'pass' || 'fail' || 're'
 
             document.getElementById('showresult').style.display = "block"
+            table1.style.display = "none"
         }
     }
     else {

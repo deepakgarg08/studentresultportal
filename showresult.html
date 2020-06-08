@@ -11,70 +11,72 @@
 
 <body>
     <div align="Center">
-        <img src="result.jpg" width="450" />
-        <br />
-        <br />
-        <br />
-        <table border="0" class="WorkFullTab">
-            <tr>
-                <th>
-                    Course*</th>
-                <td colspan="5">
-                    <select name="ctl00$working$dropCourse" id="ctl00_working_dropCourse">
-                        <option value="0" disabled>-Select-</option>
+        <div id = "table1">
+            <img src="result.jpg" width="450" />
+            <br />
+            <br />
+            <br />
+            <table border="0" class="WorkFullTab">
+                <tr>
+                    <th>
+                        Course*</th>
+                    <td colspan="5">
+                        <select name="ctl00$working$dropCourse" id="ctl00_working_dropCourse">
+                            <option value="0" disabled>-Select-</option>
 
-                        <option selected="selected" value="SECONDARY EXAMINATION">SECONDARY EXAMINATION</option>
-                        <option value="SR. SECONDARY EXAMINATION (MEDICAL)">SR. SECONDARY EXAMINATION ( MEDICAL)
-                        </option>
+                            <option selected="selected" value="SECONDARY EXAMINATION">SECONDARY EXAMINATION</option>
+                            <option value="SR. SECONDARY EXAMINATION (MEDICAL)">SR. SECONDARY EXAMINATION ( MEDICAL)
+                            </option>
 
-                    </select>
-                    <span id="ctl00_working_reqClass" style="color:Red;visibility:hidden;">*</span>
+                        </select>
+                        <span id="ctl00_working_reqClass" style="color:Red;visibility:hidden;">*</span>
 
-                </td>
+                    </td>
 
-            </tr>
-
-
-            <tr>
-
-                <td></td>
-
-            </tr>
-            <tr>
-
-                <td></td>
-
-            </tr>
-            <tr>
-
-                <td></td>
-
-            </tr>
+                </tr>
 
 
+                <tr>
 
-            <tr>
-                <th>
-                    Roll No.*</th>
-                <td>
-                    <input name="ctl00$working$textRollNo" type="text" value="12345" maxlength="20"
-                        id="ctl00_working_textRollNo" />
-                    <span id="ctl00_working_reqRollNo" style="color:Red;visibility:hidden;">*</span>
-                </td>
-                <th>
-                    D.O.B.*
-                </th>
-                <td><input type="date" id="dob" name="dateofbirth" min="1970-01-01" max="2010-12-31" required></td>
+                    <td></td>
 
-                <td>
-                    <input type="submit" name="ctl00$working$btnSearch" value="Search" onclick="handleResult()"
-                        id="ctl00_working_btnSearch" />
-                </td>
-            </tr>
+                </tr>
+                <tr>
 
-        </table>
-        <br />
-        <br />
+                    <td></td>
+
+                </tr>
+                <tr>
+
+                    <td></td>
+
+                </tr>
+
+
+
+                <tr>
+                    <th>
+                        Roll No.*</th>
+                    <td>
+                        <input name="ctl00$working$textRollNo" type="text" maxlength="20"
+                            id="ctl00_working_textRollNo" />
+                        <span id="ctl00_working_reqRollNo" style="color:Red;visibility:hidden;">*</span>
+                    </td>
+                    <th>
+                        D.O.B.*
+                    </th>
+                    <td><input type="date" id="dob" name="dateofbirth" min="1970-01-01" max="2010-12-31" required></td>
+
+                    <td>
+                        <input type="submit" name="ctl00$working$btnSearch" value="Search" onclick="handleResult()"
+                            id="ctl00_working_btnSearch" />
+                    </td>
+                </tr>
+
+            </table>
+            <br />
+            <br />
+        </div>
         <div class="message">
         </div>
         <div id="ctl00_working_Panel_Result">
@@ -85,8 +87,12 @@
                 <!-- table 1 -->
                 <div>
                     <div class="Para" style="text-align: center; ">
-
-                        <h2> Result</h2>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h1> Result</h1>
                     </div>
 
                     <table style="width: 600px; height: 30%;" rules="all" border="1">
@@ -293,7 +299,15 @@
 
                     </table>
                 </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <button onclick="window.print()">Print</button>
+
             </div>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             <script src="index.js"></script>
 
 </body>
